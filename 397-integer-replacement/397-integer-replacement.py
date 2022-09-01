@@ -9,7 +9,7 @@ class Solution:
                 return dp[n]
             
             if n % 2 == 0:
-                dp[n] = 1 + memo(n//2, dp)
+                dp[n] = 1 + memo(int(n/2), dp)
                 return dp[n]
             
             else:
