@@ -29,12 +29,13 @@ class Solution:
         for path in paths:
             flag=False
             current_node_val = path[-1]
+            print(current_node_val,end=" ")
             
             for i in path:
                 if i>current_node_val:
                     flag = True
                     break
-            if flag==False:
+            if flag!=True:
                 count+=1
                 
         return count
