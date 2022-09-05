@@ -8,10 +8,11 @@ class Solution:
             #print(list(d)[i])
             #res=(target-list(d)[i])
         '''
-        d={}
-        for index, num in enumerate(nums):
-            if target-num in d:
-                return [d[target-num], index]
-            d[num] = index
-                
+        
+        d = {}
+        for index,value in enumerate(nums):
+            if target-value in d:
+                print(d[target-value],index)
+                return [d[target-value],index]
+            d[value] = index
             
