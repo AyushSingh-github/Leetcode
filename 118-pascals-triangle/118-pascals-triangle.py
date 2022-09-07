@@ -1,10 +1,17 @@
-class Solution:
-    def generate(self, numRows: int) -> List[List[int]]:
-        if numRows == 1:
-            return [[1]]
-        
-        rowlist = self.generate(numRows-1)
-        lastrow = rowlist[-1]
-        rowlist.append( [1] + [lastrow[i] + lastrow[i-1] for i in range(1, len(lastrow))] + [1] )
-        
-        return rowlist
+class Solution(object):
+    def generate(self, numRows):
+        result = []
+        for i in range(numRows):
+            if(i == 0):
+                prev = [1]
+                result.append(prev)
+            else:
+                curr = [1]
+                j = 1
+                while(j < i):
+                    curr.append(prev[j-1] + prev[j])
+                    j+=1
+                curr.append(1)
+                result.append(curr)
+                prev = curr
+        return result
