@@ -1,5 +1,6 @@
 class Solution:
     def numberOfWeakCharacters(self, properties: List[List[int]]) -> int:
+        '''
         stack = []
         properties.sort(key = lambda x: (x[0], -x[1]))
         #print(properties)
@@ -18,20 +19,17 @@ class Solution:
         return count
     
         '''
-        # sort properties in descending order of attack but ascending order of defense
         properties.sort(key=lambda x: (-x[0], x[1]))
+        print(properties)
+        topmax = 0
+        count = 0
         
-        max_defense = 0
-        weak_count = 0
-        
-        for _, defense in properties:
-            # for any given element:
-            # - every attack must be less than or equal to what we have already seen
-            # - if the attack is the same, then the defense must be greater than what we have already seen for this attack value
-            if defense < max_defense:
-                weak_count += 1
+        for attack, defense in properties:
+            if defense < topmax:
+                count += 1
             else:
-                max_defense = defense
+                topmax = defense
+                print(topmax)
             
-        return weak_count
-        '''
+        return count
+        
