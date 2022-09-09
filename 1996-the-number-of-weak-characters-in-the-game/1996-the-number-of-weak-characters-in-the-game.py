@@ -20,7 +20,7 @@ class Solution:
     
         '''
         properties.sort(key=lambda x: (-x[0], x[1]))
-        print(properties)
+        #print(properties)
         topmax = 0
         count = 0
         
@@ -29,7 +29,7 @@ class Solution:
                 count += 1
             else:
                 topmax = defense
-                print(topmax)
+                #print(topmax)
             
         return count
         
