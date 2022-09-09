@@ -6,9 +6,8 @@ class Solution:
         print(d)
         
         for index,val in enumerate(d):
-            if d[val] ==1:
-                if val in s:
-                    return s.index(val)
+            if d[val] ==1 and val in s:
+                return s.index(val)
         return -1
     
         '''
