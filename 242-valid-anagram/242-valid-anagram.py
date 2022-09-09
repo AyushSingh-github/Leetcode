@@ -7,13 +7,10 @@ class Solution:
         t = "".join(sorted(t))
         #print(s,t)
         
-
-        flag = 1
         for i,j in zip(s,t):
             if i!=j:
-                flag = 0
-        
-        return True if flag else False
+                return False
+        return True
             
             
         
