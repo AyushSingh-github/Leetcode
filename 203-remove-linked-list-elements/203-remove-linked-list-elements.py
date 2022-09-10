@@ -20,7 +20,7 @@ class Solution:
         '''
         
         #iteration
-        
+        '''
         result = current = ListNode(0, head)
         #print(current.val)
         while current and current.next:
@@ -30,3 +30,13 @@ class Solution:
                 current = current.next
         #print(ListNode(0,head))
         return result.next
+        '''
+    
+        tmp = head 
+        while tmp is not None:
+            while tmp.next is not None and tmp.next.val == val:
+                tmp.next = tmp.next.next
+            tmp = tmp.next
+        if head is not None and head.val == val:
+            head = head.next
+        return head    
