@@ -10,6 +10,14 @@ class Solution:
         if head.next == head : return True
         if not head.next : return False
         
+        slow, fast = head, head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        return False        
+        
         '''
         visited = set()
         while head :
@@ -18,7 +26,7 @@ class Solution:
             head = head.next
         return False
         '''
-        
+        '''
         slow = head.next
         fast = head.next.next
         
@@ -30,3 +38,4 @@ class Solution:
             slow = slow.next
             fast = fast.next.next
         return False
+        '''
