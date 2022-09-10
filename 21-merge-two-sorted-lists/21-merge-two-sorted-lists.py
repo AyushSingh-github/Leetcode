@@ -4,8 +4,9 @@
 #         self.val = val
 #         self.next = next
 class Solution:
+    '''
     def mergeTwoLists(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        '''
+        
         head = prev = ListNode()
         get = lambda x,y: x if x.val < y.val else y
         while l1 and l2:
