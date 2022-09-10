@@ -9,21 +9,20 @@ class Solution:
         if not head: return head
         if head.next == head : return True
         if not head.next : return False
-		
+        
+        '''
         visited = set()
         while head :
             if head in visited : return True
             visited.add(head)
             head = head.next
         return False
-    
-		# Second approach  using Fast and Slow pointers 
-		# False when None is reached or deemed to be crossed by fast pointer and True when slow = fast pointers
         '''
+        
         slow = head.next
         fast = head.next.next
         
-        if not fast : 
+        if not fast :
             return False if slow else True 
         
         while fast.next and fast.next.next:
@@ -31,4 +30,3 @@ class Solution:
             slow = slow.next
             fast = fast.next.next
         return False
-        '''
