@@ -20,10 +20,13 @@ class Solution:
         '''
         
         #iteration
+        
         result = current = ListNode(0, head)
+        #print(current.val)
         while current and current.next:
             if current.next.val == val:
                 current.next = current.next.next
             else: 
                 current = current.next
+        #print(ListNode(0,head))
         return result.next
