@@ -1,5 +1,6 @@
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
+        if k==0: return 0
         dp = [[1000, 0] for _ in range(101)]
         for price in prices:
             for i in range(1, k + 1):
