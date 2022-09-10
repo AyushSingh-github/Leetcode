@@ -10,6 +10,14 @@ class Solution:
         if head.next == head : return True
         if not head.next : return False
         
+        while head:
+            if head.val==float("infinity"):
+                return True
+            else:
+                head.val=float("infinity")
+                head=head.next
+        return False
+        '''
         slow, fast = head, head
         while fast and fast.next:
             slow = slow.next
@@ -17,7 +25,7 @@ class Solution:
             if slow == fast:
                 return True
         return False        
-        
+        '''
         '''
         visited = set()
         while head :
