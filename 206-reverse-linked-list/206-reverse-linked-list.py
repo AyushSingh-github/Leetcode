@@ -16,6 +16,7 @@ class Solution:
             curr = currnext
         return prev
 '''
+'''
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head or not head.next:
@@ -30,3 +31,20 @@ class Solution:
             head.next.next = prv      
             prv = tmp                 
         return head
+'''
+#recursion
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        last = [None]
+        def reverse(node, prev=None):
+            #print(node)
+            #print(prev)
+            if node is None:
+                last[0] = prev
+                return
+            reverse(node.next, node)
+            node.next = prev
+        reverse(head)
+        return last[0]
+
+
