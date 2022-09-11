@@ -5,6 +5,8 @@
 #         self.next = next
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        #iteration
+        '''
         if not head:
             return
         temp = head
@@ -13,4 +15,12 @@ class Solution:
                 temp.next = temp.next.next
             else:
                 temp = temp.next
+        return head
+        '''
+        
+        #recursion
+        if head and head.next:
+            if head.val == head.next.val:
+                return self.deleteDuplicates(head.next)
+            head.next = self.deleteDuplicates(head.next)
         return head
