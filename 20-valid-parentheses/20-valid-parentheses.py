@@ -14,7 +14,7 @@ class Solution:
                 
         return True if len(s)==0 else False
         '''
-        
+        '''
         st = []
         set = ('()','[]','{}') 
         
@@ -27,6 +27,22 @@ class Solution:
                 return False
             
         return True if len(st)==0 else False
-                
+        '''
+        st = []
+        d = { ")":"(" , "]":"[" , "}":"{" }
+        
+        if(len(s)==1):
+            return False
+        
+        for i in s:
+            if i in ["(","[","{"]:
+                st.append(i)
+            else:
+                if (st and st[-1]==d[i]):
+                    st.pop()
+                else:
+                    return False
+        
+        return True if len(st)==0 else False
                 
                 
