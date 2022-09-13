@@ -15,17 +15,12 @@ class Solution:
         '''
         
         #iterative
-        A = []
-        stack = []
-        cur_node = root
-        while stack or cur_node:
-            if not cur_node:
-                node = stack.pop()
-                A.append(node.val)
-                cur_node = node.right
-    
-            else:
-                stack.append(cur_node)
-                cur_node = cur_node.left
-        
-        return A
+        stack, res = [], []      
+        while True:
+            while root:
+                stack.append(root)
+                root=root.left
+            if not stack: return res
+            node = stack.pop()
+            res.append(node.val)
+            root=node.right
