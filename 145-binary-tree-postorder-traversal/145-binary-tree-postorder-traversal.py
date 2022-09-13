@@ -14,6 +14,7 @@ class Solution:
         '''
         
         #iteration
+        '''
         if not root :
             return []
         stk = [root]
@@ -26,4 +27,15 @@ class Solution:
             if temp.right :
                 stk.append(temp.right)
         return result
+        '''
         
+        ans = deque()
+        stack = [root]
+        while stack: 
+            node = stack.pop()
+            if not node:
+                continue
+            ans.appendleft(node.val)
+            stack.append(node.left)
+            stack.append(node.right)
+        return ans
