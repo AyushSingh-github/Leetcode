@@ -7,6 +7,23 @@
 class Solution:
     def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         #recursion
+        '''
         if root is None:
             return []
         return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val] 
+        '''
+        
+        #iteration
+        if not root :
+            return []
+        stk = [root]
+        result  = []
+        while stk :
+            temp = stk.pop()
+            result.insert(0,temp.val)
+            if temp.left :
+                stk.append(temp.left)
+            if temp.right :
+                stk.append(temp.right)
+        return result
+        
