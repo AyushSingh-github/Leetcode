@@ -7,9 +7,9 @@
 class Solution:
     def pseudoPalindromicPaths (self, root: Optional[TreeNode]) -> int:
         freq=[0 for x in range(10)]
-        self.pp=0
+        self.pointer=0
         
-        def dfshelp(node,freq):
+        def dfs(node,freq):
             if not node: 
                 return
             freq[node.val]+=1
@@ -19,10 +19,10 @@ class Solution:
                     if i%2!=0: 
                         odd+=1
                 if odd<=1:
-                    self.pp+=1
-            dfshelp(node.left,freq)
-            dfshelp(node.right,freq)
+                    self.pointer+=1
+            dfs(node.left,freq)
+            dfs(node.right,freq)
             freq[node.val]-=1
             
-        dfshelp(root,freq)
-        return self.pp
+        dfs(root,freq)
+        return self.pointer
