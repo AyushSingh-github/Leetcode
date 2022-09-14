@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        #recursion
+        #recursion dfs
         '''
         if root is None:
             return 0
@@ -17,6 +17,7 @@ class Solution:
         '''
         
         #bfs
+        '''
         if not root: return 0
         q = deque([root])
         res = 0
@@ -28,4 +29,18 @@ class Solution:
                 if node.right:
                     q.append(node.right)
             res += 1
+        return res
+        '''
+        
+        #iterative DFS
+        if not root:
+            return 0
+        stack=[[root, 1]]
+        res =1
+        while stack:
+            node, depth = stack.pop()
+            if node:
+                res= max(res, depth)
+                stack.append([node.left, depth+1])
+                stack.append([node.right, depth+1])
         return res
