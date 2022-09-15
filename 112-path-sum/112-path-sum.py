@@ -24,7 +24,7 @@ class Solution:
         while stack:
             currnode, currsum = stack.pop() 
             if (not currnode.left and not currnode.right and currsum == 0):
-                return True
+                return 1
             
             if currnode.left:
                 stack.append([currnode.left , currsum - currnode.left.val])
@@ -32,4 +32,4 @@ class Solution:
             if currnode.right:
                 stack.append([currnode.right, currsum - currnode.right.val])
                 
-        return False
+        return 0
