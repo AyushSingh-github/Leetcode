@@ -16,7 +16,10 @@ class Solution:
         '''
         
         #iteration
-        stack = [[root,targetSum - root.val]] if root else []
+        if root:
+            stack = [[root,targetSum - root.val]]
+        else:
+            return []
         
         while stack:
             currnode, currsum = stack.pop() 
