@@ -6,6 +6,8 @@
 #         self.right = right
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        #dfs recursion
+        '''
         if not root:
             return None
     
@@ -15,3 +17,23 @@ class Solution:
         self.invertTree(root.left)
         self.invertTree(root.right)
         return root
+        '''
+        
+        #bfs with queue
+        if not root:
+            return
+        queue = deque([root])
+        #print(queue,"\n")
+        
+        while queue:
+            curr  = queue.popleft()
+            curr.left , curr.right = curr.right , curr.left
+            if curr.left :
+                queue.append(curr.left)
+                #print(queue)
+            if curr.right :
+                queue.append(curr.right)
+        return root 
+        
+    
+    
