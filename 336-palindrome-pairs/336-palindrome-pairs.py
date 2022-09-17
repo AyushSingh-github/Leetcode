@@ -8,9 +8,8 @@ class Solution:
         
         for index,value in enumerate(words):
             reverse = value[::-1]
-            length = len(value)
             
-            for i in range(length+1):
+            for i in range(len(value)+1):
                 if reverse[:i] in d and d[reverse[:i]] != d[value] and palindrome(reverse[i:]):
                     result.append((d[reverse[:i]],index))
                 if reverse[i:] in d and d[reverse[i:]] != d[value] and palindrome(reverse[:i]):
