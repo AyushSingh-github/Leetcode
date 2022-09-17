@@ -16,7 +16,7 @@ class Solution:
             nodes.add(root.val)
             return solve(root.left) or solve(root.right)
         return solve(root)
-'''
+
     
 class Solution(object):
 	def findTarget(self, root, k):
@@ -33,3 +33,27 @@ class Solution(object):
 				stack.append(node.left)
 
 				visited.add(k - node.val)
+'''
+class Solution:
+    def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
+        a=[]
+        def inorder(root):
+            if root is None:
+                return 
+            inorder(root.left)
+            a.append(root.val)
+            inorder(root.right)
+        inorder(root)
+        
+        #two pointer
+        start=0
+        end=len(a)-1
+        while start != end:
+            summ = a[start] + a[end]
+            if summ == k:
+                return True
+            if summ > k:
+                end -= 1
+            else:
+                start += 1
+        return False
