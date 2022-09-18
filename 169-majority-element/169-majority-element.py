@@ -12,6 +12,7 @@ class Solution:
 
 class Solution:
     def majorityElement(self, A: List[int]) -> int:
+        # voting algo
         N = len(A)
         count = 0
         element = 0
