@@ -1,7 +1,7 @@
 '''
 class Solution:
     def trap(self, height: List[int]) -> int:
-        #stack
+        #stack max area histogram formula
         my_stack = []  # store the index
         total_volume = 0
         for i, v in enumerate(height):
@@ -14,9 +14,10 @@ class Solution:
         return total_volume
 '''
 
+'''
 class Solution:
     def trap(self, height: List[int]) -> int:
-        #left and right max height 
+        #left and right max height  (striver -> tc. O(n) and sc. O(n2))
         n = len(height)
         water = 0
         
@@ -41,3 +42,30 @@ class Solution:
                 water += min(max_left[i], max_right[i]) - h
                 
         return water
+'''   
+#optimised
+
+class Solution:
+	def trap(self, height: List[int]) -> int:
+
+		result = 0
+
+		max_left = height[0]
+		max_right = height[-1]
+
+		l = 1
+		r = len(height) - 2
+
+		while l <= r:
+
+			max_left = max(max_left, height[l])
+			max_right = max(max_right, height[r])
+
+			if max_left < max_right:
+				result = result + max_left - height[l]
+				l += 1
+			else:
+				result = result + max_right - height[r]
+				r -= 1
+
+		return result
