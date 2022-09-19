@@ -1,8 +1,11 @@
+'''
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
+        #brute force. TC = O(N+N)   SC = O(1)
+
         count0,count1,count2 =0,0,0
         for i in nums:
             if i==0:
@@ -21,26 +24,20 @@ class Solution:
         return nums
 '''
 #Most optimized solution using Dutch National Flag Algorithm
+#   3 way partitioning      TC = O(N),  SC = O(1)
 
+class Solution:
     def sortColors(self, nums: List[int]) -> None:
-        
-        mid = low = 0
+        mid, low = 0,0
         high = len(nums)-1
         
-        def swap(a,b):
-            temp = nums[a]
-            nums[a]= nums[b]
-            nums[b] = temp
-        
-        while mid <= high:
-            
+        while mid <= high:    
             if nums[mid] == 0:
-                swap(low,mid)
+                nums[low],nums[mid] = nums[mid],nums[low]
                 low +=1
             elif nums[mid] == 2:
-                swap(mid,high)
+                nums[mid],nums[high] = nums[high],nums[mid]
                 high -=1
                 mid-=1
-            
+
             mid+=1
-'''
