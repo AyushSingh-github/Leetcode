@@ -1,6 +1,6 @@
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        intervals.sort()
+        intervals.sort(key = lambda x:(x[0],x[1]))
         ans= []
         
         #previous interval 1st and 2nd value and compare with next interval 1st value and then 2nd value
