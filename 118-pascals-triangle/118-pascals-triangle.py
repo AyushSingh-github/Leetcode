@@ -9,6 +9,7 @@
         #ex = 4C3 = (4*3*2)/(1*2*3), r=4, c=3,   for i = 0 to 3:  product_num *= r-i, product_deno *= i+1 = num/deno
         
 #python brute force solution
+'''
 class Solution:
     def generate(self, n: int) -> List[List[int]]:
         ans = [[1]]
@@ -22,9 +23,8 @@ class Solution:
             b.append(1)
             ans.append(b)
         return ans
-    
+'''    
 #optimized solution
-'''
 class Solution:
     def generate(self, n: int) -> List[List[int]]:
         ans=[[1]*(i+1) for i in range(n)]
@@ -32,4 +32,3 @@ class Solution:
             for j in range(1,i):
                 ans[i][j]=ans[i-1][j-1]+ans[i-1][j]
         return ans
-'''        
