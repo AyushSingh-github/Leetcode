@@ -25,6 +25,7 @@ class Solution:
         return ans
 '''    
 #optimized solution
+'''
 class Solution:
     def generate(self, n: int) -> List[List[int]]:
         ans=[[1]*(i+1) for i in range(n)]
@@ -32,3 +33,17 @@ class Solution:
             for j in range(1,i):
                 ans[i][j]=ans[i-1][j-1]+ans[i-1][j]
         return ans
+'''
+
+#most fast and optimised with recursion
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
+        if numRows == 1:
+            return [[1]]
+        
+        rowlist = self.generate(numRows-1)
+        lastrow = rowlist[-1]
+        rowlist.append( [1] + [lastrow[i] + lastrow[i-1] for i in range(1, len(lastrow))] + [1] )
+        
+        return rowlist
+
