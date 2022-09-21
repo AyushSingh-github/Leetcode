@@ -1,30 +1,20 @@
 class Solution:
     def findLength(self, nums1: List[int], nums2: List[int]) -> int:
-        
-        def compare_offset(n1, n2, offset):
-            longest = 0
-            same_counter = 0
-            for i in range(offset, len(n1)):
-                if (i-offset) > len(n2) -1:
+        m = len(nums1)
+        n = len(nums2)
+        max_count = 0
+        # i from -4 to 4. so i+j value wil tell which ith and jth ele will overlap and
+        #for each ith value we get diff jth value which in i+j < 0 that gives positive value of j,
+        for i in range(-n+1,m):
+            count = 0
+            for j in range(n):
+                if i+j<0:
+                    continue
+                elif i+j >=m:
                     break
-                    
-                if n1[i] == n2[i-offset]:
-                    same_counter += 1
+                elif nums1[i+j] == nums2[j]:
+                    count +=1
+                    max_count = max(max_count,count)
                 else:
-                    same_counter = 0
-                longest = max(longest, same_counter)
-            return longest
-        
-        
-        best = 0
-        # slide one way
-        for i in range(len(nums1)):
-            length = compare_offset(nums1, nums2, i)
-            best = max(best, length)
-
-        # then slide the next
-        for i in range(len(nums2)):
-            length = compare_offset(nums2, nums1, i)
-            best = max(best, length)
-
-        return best
+                    count=0
+        return max_count
