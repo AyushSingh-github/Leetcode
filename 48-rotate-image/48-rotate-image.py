@@ -32,7 +32,7 @@ class Solution:
         // round 1: 
         // -------------------
         // tmp <- 1
-        // top left cell matrix[i][j] (1) <- bottom left 7 cell (matrix[n - j - 1][i])
+        // top left 1 cell matrix[i][j] (1) <- bottom left 7 cell (matrix[n - j - 1][i])
         // bottom left 7 cell (matrix[n - j - 1][i]) <- bottom right cell 9 (matrix[n - i - 1][n - j - 1])
         // bottom right cell 9 (matrix[n - i - 1][n - j - 1]) <- top right cell 3 (matrix[j][n - i - 1])
         // top right cell 3 (matrix[j][n - i - 1]) <- 1 (tmp)
@@ -54,13 +54,21 @@ class Solution:
         // 7 8 9    9 8 7    9 6 3
         '''
         n = len(matrix)
+        #print(n)
         tmp = 0
+        
+        # i will always be i=0 and j = 0,1 
         for i in range(n//2):
             for j in range(i,n-i-1):
+                #print(i,j)
+                
+                # for outer corner rings ->     i=0, j=0,1,2
+                # for inner middle ele rings -> i=1, j=0,1
+                
                 tmp = matrix[i][j]
                 matrix[i][j] = matrix[n - j - 1][i]
                 matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1]
                 matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1]
                 matrix[j][n - i - 1] = tmp
-        
+                #print(matrix)
         
