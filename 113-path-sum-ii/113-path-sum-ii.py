@@ -13,7 +13,9 @@ class Solution:
             curr_path.append(root.val)
             
             if not root.left and not root.right and sum(curr_path) == targetSum:
-                res.append(curr_path[:])
+                res.append(list(curr_path))
+                print(curr_path)
+                
                 
             solve(root.left,curr_path)
             solve(root.right,curr_path)
