@@ -7,14 +7,14 @@ class Solution:
 
         for i, value in enumerate(pattern):
             mp1[value].append(i)
-        print(mp1)
+        #print(mp1)
              
         for i, value in enumerate(s):
             mp2[value].append(i)
-        print(mp2)
+        #print(mp2)
             
         for k, v in zip(mp1.values(), mp2.values()):
-            print(k,v)
+            #print(k,v)
             if k != v:
                 return False 
         
