@@ -15,15 +15,17 @@ class Solution:
         
         for i in range(len(strs)):
             sorted_strs.append(''.join(sorted(strs[i])))
-        print(sorted_strs)
+        #print(sorted_strs)
         
         for index, word in enumerate(sorted_strs):
             if word in idx_map:
-			    # Insert the original string into the hashmap
+                
+			    # get the original string values as list into the hashmap of key, value pair of sorted_strs:list of strs values at that same index
+                
                 idx_map[word].append(strs[index])
             else:
                 idx_map[word] = [strs[index]]
-        print(idx_map)
+        #print(idx_map)
                 
         for entry in idx_map.values():
             res.append(entry)
