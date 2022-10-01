@@ -13,16 +13,16 @@ class Solution:
             
             # Use dicussed technique to calculate in cases s[i] = '0'
             if s[i] == '0':
-                if s[i-1] == '1' or s[i-1] == '2':
+                if s[i-1] == '1' or s[i-1] =='2':
                     dp2[i+1] = dp1[i]
                 else:
                     return 0
                 
             else:
                 # In all other cases construct a two-digit number and apply mentioned tactics
-                digit = ((ord(s[i-1])-ord('0'))*10 + ord(s[i])-ord('0'))
+                digit = (ord(s[i-1])-48)*10 + ord(s[i])-48
                 
-                if digit < 27:
+                if digit <= 26:
                     dp2[i+1] = dp1[i]
                 dp1[i+1] = dp1[i] + dp2[i]
                 
