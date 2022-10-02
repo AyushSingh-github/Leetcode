@@ -20,7 +20,7 @@ class Solution:
     def numRollsToTarget(self, n: int, k: int, target: int) -> int:
         mod = 10**9+7
 
-        @lru_cache(3000)
+        @lru_cache(1000)
         def helper(n, target):
             if target < n or target > n*k:
                 return 0 
