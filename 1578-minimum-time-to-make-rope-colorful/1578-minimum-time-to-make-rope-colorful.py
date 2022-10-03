@@ -36,6 +36,6 @@ class Solution:
                 x=i
             else:
                 continue
-        maxi+=max(neededTime[x:])
+        maxi+=max(neededTime[x:len(neededTime)])
         # print(total,maxi)
         return total-maxi   
