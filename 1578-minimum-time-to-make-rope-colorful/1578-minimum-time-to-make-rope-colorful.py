@@ -1,5 +1,6 @@
 class Solution:
     def minCost(self, colors: str, neededTime: List[int]) -> int:
+        '''
         output = 0
         currentColor = ""
         currentSequence = []
@@ -19,3 +20,22 @@ class Solution:
             output += sum(currentSequence) - max(currentSequence)
 
         return output
+        '''
+        
+        col=[colors[0]]
+        # ind=list()
+        x=0
+        maxi=0
+        total=neededTime[0]
+        n=len(colors)
+        for i in range(1,n):
+            total+=neededTime[i]
+            if colors[i]!=col[-1]:
+                col.append(colors[i])
+                maxi+=max(neededTime[x:i])
+                x=i
+            else:
+                continue
+        maxi+=max(neededTime[x:])
+        # print(total,maxi)
+        return total-maxi   
