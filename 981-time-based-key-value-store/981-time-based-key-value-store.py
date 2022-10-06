@@ -14,11 +14,11 @@ class TimeMap:
         timeValues = self.hashmap.get(key, [])
         l, r = 0, len(timeValues) - 1
         while l <= r:
-            m = int((l + r) / 2)
+            m = (l + r) // 2
             if timeValues[m][1] == timestamp:
                 return timeValues[m][0]
 
-            elif timeValues[m][1] <= timestamp:
+            elif timeValues[m][1] < timestamp:
                 ans = timeValues[m][0]
                 l = m + 1
             
