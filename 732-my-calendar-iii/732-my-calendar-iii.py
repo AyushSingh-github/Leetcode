@@ -37,7 +37,7 @@ class MyCalendarThree:
             #     - or next starting point lies to the righe of 'e'
             if opened >= len(self.start):
                 break
-            if self.start[opened] == e:
+            if self.start[opened] >= e:
                 break
             
             if self.start[opened] < self.end[closed]:
