@@ -1,7 +1,7 @@
+# Brute optimized using extra space
+# O(n) Time and O(n) Space
+'''
 class Solution:
-    # Brute optimized using extra space
-    # O(n) Time and O(n) Space
-    '''
     def increasingTriplet(self, nums: List[int]) -> bool:
         smallest = nums.copy()
         largest = nums.copy()
@@ -18,7 +18,8 @@ class Solution:
                     return True
                 
         return False
-    '''    
+'''
+'''
     # Greedy space optimized
     # O(n) Time and O(1) Space
     def increasingTriplet(self, nums: List[int]) -> bool:
@@ -36,4 +37,22 @@ class Solution:
             else:
                 return True
             
+        return False
+'''
+class Solution:
+    def increasingTriplet(self, nums: List[int]) -> bool:
+        if len(nums)<3:
+            return False
+
+        smallest = float('inf')
+        second_smallest = float('inf')
+
+        for num in nums:
+            if num <= smallest:  # Find the smallest number
+                smallest = num
+            elif num <= second_smallest:  # If get here, this number is larger than smallest number
+                second_smallest = num
+            else: # If get here, this number is larger than second smallest number => there is are increasing triplet
+                return True
+
         return False
