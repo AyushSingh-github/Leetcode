@@ -1,6 +1,7 @@
 class Solution:
     # Brute optimized using extra space
     # O(n) Time and O(n) Space
+    '''
     def increasingTriplet(self, nums: List[int]) -> bool:
         smallest = nums.copy()
         largest = nums.copy()
@@ -17,7 +18,7 @@ class Solution:
                     return True
                 
         return False
-'''    
+    '''    
     # Greedy space optimized
     # O(n) Time and O(1) Space
     def increasingTriplet(self, nums: List[int]) -> bool:
@@ -36,4 +37,3 @@ class Solution:
                 return True
             
         return False
-'''
