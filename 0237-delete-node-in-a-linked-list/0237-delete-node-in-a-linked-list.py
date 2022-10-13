@@ -12,6 +12,7 @@ class Solution:
         """
         #TC -> O(N)  , SC -> O(1)
         # Replacing value of each node with the value of the next node
+        '''
         temp = node
         while temp.next:
             temp.val = temp.next.val
@@ -22,10 +23,9 @@ class Solution:
         while temp.next.next:
             temp = temp.next
         temp.next = temp.next.next   
+        '''
         
         #TC -> O(N) , shifting the next node val to prev node, without deletion
-        '''
         node.val = node.next.val
         node.next = node.next.next
-        '''
         
