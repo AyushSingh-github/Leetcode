@@ -5,7 +5,6 @@
 #         self.next = next
 class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        '''
         dummy = ListNode(0, head)
         slow = dummy
         fast = dummy
@@ -17,8 +16,9 @@ class Solution:
         # Delete the middle node
         slow.next = slow.next.next
         return dummy.next
-        '''
         
+#Sol-2        
+        '''
         aux = []
         
         while head:
@@ -38,6 +38,7 @@ class Solution:
             tail = curr
             
         return head.next
+        '''
     
 #Sol-1    
         '''        
