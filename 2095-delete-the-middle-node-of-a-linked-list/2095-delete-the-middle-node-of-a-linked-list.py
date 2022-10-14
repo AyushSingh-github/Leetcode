@@ -18,7 +18,7 @@ class Solution:
         slow.next = slow.next.next
         return dummy.next
         '''
-        '''
+        
         aux = []
         
         while head:
@@ -38,7 +38,9 @@ class Solution:
             tail = curr
             
         return head.next
-        '''
+    
+#Sol-1    
+        '''        
 class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         #BASE case
@@ -63,3 +65,4 @@ class Solution:
         
             slow.next = slow.next.next
             return head
+            '''
