@@ -5,6 +5,7 @@
 #         self.next = next
 class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+#Sol-3        
         dummy = ListNode(0, head)
         slow = dummy
         fast = dummy
@@ -19,6 +20,8 @@ class Solution:
         
 #Sol-2        
         '''
+class Solution:
+    def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:        
         aux = []
         
         while head:
