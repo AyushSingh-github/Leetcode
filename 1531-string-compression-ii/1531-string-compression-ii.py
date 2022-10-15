@@ -130,15 +130,18 @@ class Solution:
             
             # we delete all characters, return 0
             if i == len(s): return 0
+            
             # here we can have two choices, we either
             # 1. delete the current char
             # 2. keep the current char
             # we calculate both result and take the min one
-            
             delete = dp(i + 1, prev, prev_cnt, k - 1)
+            
             if s[i] == prev:
+                
                 # e.g. a2 -> a3
                 keep = dp(i + 1, prev, prev_cnt + 1, k)
+                
                 # add an extra 1 for the following cases
                 # since the length of RLE will be changed
                 # e.g. prev_cnt = 1: a -> a2
@@ -161,7 +164,7 @@ class Solution:
         # starting from index i 
         # with previous character `prev`
         # with `prev_cnt` times repeated so far
-        return dp(0, "-1", 0, k)
+        return dp(0, "", 0, k)
     
 #4.
 '''
