@@ -82,7 +82,7 @@ class Solution:
             
 '''
 
-'''
+#2.
 class Solution:
     def getLengthOfOptimalCompression(self, s: str, k: int) -> int:
         #traverse the string
@@ -107,7 +107,8 @@ class Solution:
             delete = float("inf")
         
         if s[i] == prev:
-		    #need one more digit for the count
+		    
+            #need one more digit for the count
             carry = 1 if l == 1 or len(str(l + 1)) > len(str(l)) else 0
             skip = carry + self.dfs(s, i + 1, k, s[i], l + 1, memo)
         else:
@@ -117,9 +118,9 @@ class Solution:
         
         return memo[(i, k, prev, l)]
             
-'''
 
 #3
+'''
 class Solution:
     def getLengthOfOptimalCompression(self, s: str, k: int) -> int:
         @cache
@@ -165,7 +166,7 @@ class Solution:
         # with previous character `prev`
         # with `prev_cnt` times repeated so far
         return dp(0, "", 0, k)
-    
+'''    
 #4.
 '''
 from functools import lru_cache
