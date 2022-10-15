@@ -1,4 +1,4 @@
-'''
+#1.
 class Solution:
     def getLengthOfOptimalCompression(self, s: str, k: int) -> int:
         
@@ -80,9 +80,10 @@ class Solution:
         res = dp(0, "", 0, k)
         return res
             
-'''
+
 
 #2.
+'''
 class Solution:
     def getLengthOfOptimalCompression(self, s: str, k: int) -> int:
         #traverse the string
@@ -117,7 +118,7 @@ class Solution:
         memo[(i, k, prev, l)] = min(delete, skip)
         
         return memo[(i, k, prev, l)]
-            
+'''            
 
 #3
 '''
