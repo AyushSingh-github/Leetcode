@@ -1,6 +1,6 @@
 class Solution:
     def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
-        @lru_cache(1000)
+        @lru_cache(999)
         def solve(i,j):
             if j == 1 and i < len(jobDifficulty):
                 return max(jobDifficulty[i:])
