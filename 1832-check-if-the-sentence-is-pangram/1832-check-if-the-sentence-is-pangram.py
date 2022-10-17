@@ -1,4 +1,5 @@
 class Solution:
+    '''
     def checkIfPangram(self, sentence: str) -> bool:
         s = set()
         for i in sentence:
@@ -8,3 +9,9 @@ class Solution:
             return True
         
         return False
+    '''
+    def checkIfPangram(self, sentence: str) -> bool:
+        if len(set(sentence))==26:
+            return True
+        else:
+            return False
