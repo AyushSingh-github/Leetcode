@@ -26,4 +26,4 @@ class Solution:
         for key in dic:
             if dic[key] > 1:
                 res.append(key)
-        return res        
+        return res
