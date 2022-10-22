@@ -1,4 +1,39 @@
 class Solution:
+    #1st soln
+    def minWindow(self, s: str, t: str) -> str:
+        n = len(s)
+        if n<len(t):
+            return ""
+        mp = [0]*256
+        
+        start = 0
+        ans = n+1
+        cnt = 0
+        
+        for i in t:
+            mp[ord(i)] += 1
+            if mp[ord(i)] == 1:
+                cnt += 1
+        j,i=0,0
+        
+        while(j<n):
+            mp[ord(s[j])] -= 1
+            if mp[ord(s[j])] == 0:
+                cnt -= 1
+                while cnt == 0:
+                    if ans > j - i + 1:
+                        ans = j - i + 1
+                        start = i
+                    mp[ord(s[i])] += 1
+                    if mp[ord(s[i])] > 0:
+                        cnt += 1
+                    i += 1
+            j += 1
+        if ans > n:
+            return ""
+        return s[start:start+ans]
+'''
+class Solution:
     def minWindow(self, s: str, t: str) -> str:
         if not t or not s:
             return ""
@@ -51,3 +86,4 @@ class Solution:
         # Keep expanding the window once we are done contracting.
             r += 1    
         return "" if ans[0] == float("inf") else s[ans[1] : ans[2] + 1]
+'''
