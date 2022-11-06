@@ -4,8 +4,8 @@ class Solution:
             return ''.join(sorted(s))     # O(nlogn)
         
         n = len(s)
-        #if n == 1:
-        #    return s
+        if n == 1:
+            return s
         m = s
         
         # ---O(n^2)----
