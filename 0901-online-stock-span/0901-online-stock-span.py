@@ -1,4 +1,5 @@
 #monotonic stack
+#1. explaination in notes
 '''
 class StockSpanner:
     def __init__(self):
@@ -13,7 +14,7 @@ class StockSpanner:
         return ans
 '''
 
-#a different trick for dealing with the corner cases: add 1 pair in the initial stack. the ans = 1 and add up in the standard solution may be a little bit hard to understand.
+#2. different trick for dealing with the corner cases: add 1 pair in the initial stack. the ans = 1 and add up in the standard solution may be a little bit hard to understand.
 class StockSpanner:
     '''
     def __init__(self):
@@ -32,6 +33,11 @@ class StockSpanner:
         self.monostack.append([price, self.index])
         return self.index - self.monostack[-2][1]
     '''
+    
+#3. This is a jump line approach - similar to the stack above, we use a dictionary where the keys are indexes and the values is some previous index where the value stops going down.
+
+#Space is O(n) but I'm not sure about speed, also O(1)? since it still holds that the while loop for future calls cannot run as long as the previous calls.
+
     def __init__(self):
         self.ledger = [-1]
         self.jump = dict()
@@ -58,6 +64,7 @@ class StockSpanner:
             return p_idx-prev_idx
         else:
             return 1
+        
 # Your StockSpanner object will be instantiated and called as such:
 # obj = StockSpanner()
 # param_1 = obj.next(price)
