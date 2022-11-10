@@ -1,5 +1,5 @@
+'''
 from collections import deque
-
 class Solution:
     def removeStars(self, s: str) -> str:
         ans = deque()
@@ -41,4 +41,3 @@ class Solution:
                 k += 1
 
         return ''.join(A[:k])
-'''
