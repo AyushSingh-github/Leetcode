@@ -1,6 +1,7 @@
 #TC-> O(m+n),   SC-> O(m+n)
 
 class Solution:
+    '''
     def backspaceCompare(self, S, T):
         def build(S):
             ans = []
@@ -11,19 +12,31 @@ class Solution:
                     ans.pop()
             return "".join(ans)
         return build(S) == build(T)
+     '''  
 
 #TC-> O(m+n),   SC-> O(1)    
-    '''
-    def backspaceCompare(self, S, T):
-        def F(S):
-            skip = 0
-            for x in reversed(S):
-                if x == '#':
-                    skip += 1
-                elif skip:
-                    skip -= 1
-                else:
-                    yield x
-
-        return all(x == y for x, y in itertools.izip_longest(F(S), F(T)))
-        '''
+    
+    def backspaceCompare(self, s: str, t: str) -> bool:
+        index = 0
+        while index < len(s):
+            if s[index] == "#" and index != 0:
+                s = s[:index-1] + s[index+1:]
+                index -= 1
+                continue
+            
+            index += 1
+        
+        index = 0
+        while index < len(t):
+            if t[index] == "#" and index != 0:
+                t = t[:index-1] + t[index+1:]
+                index -= 1
+                continue
+            
+            index += 1
+        
+        s = s.replace("#","")
+        t = t.replace("#","")
+        
+        return s == t
+        
