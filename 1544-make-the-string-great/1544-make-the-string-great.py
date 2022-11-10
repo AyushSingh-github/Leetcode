@@ -21,11 +21,10 @@ class Solution:
                 break
         return s
 '''   
-#stack
+#stack 
 class Solution:
     def makeGood(self, s: str) -> str:
         stack = []
-        
         for curr_char in list(s):
             if stack and abs(ord(curr_char) - ord(stack[-1])) == 32:
                 stack.pop()
