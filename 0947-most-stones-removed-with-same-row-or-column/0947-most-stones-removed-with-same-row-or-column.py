@@ -1,4 +1,4 @@
-#Intuition 
+#Intuition ->   Connected Graph ( DFS + Union Find) 
 #My first intuition was wrong: I tried removing the stones that had fewest neighbors first, not counting those that had zero neighbors. This approach worked in about 2/3 of the the cases.
 
 #Approach
