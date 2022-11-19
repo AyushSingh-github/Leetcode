@@ -1,7 +1,8 @@
 class Solution:
     def romanToInt(self, s: str) -> int:
         romans = {"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"M":1000}
-        
+        #for loop
+        '''
         n = len(s)
         integer = 0 # running sum
         last_value = 0 # keep track of last value
@@ -21,9 +22,9 @@ class Solution:
             # update the last value seen
             last_value = value
         return integer
-    
-
-'''
+        '''
+        
+        #while loop
         total = 0
         i = 0
         while i < len(s):
@@ -34,4 +35,3 @@ class Solution:
                 total+=romans[s[i]]
             i+=1
         return total
-'''
