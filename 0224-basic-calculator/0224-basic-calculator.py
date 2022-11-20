@@ -1,3 +1,4 @@
+'''
 class Solution:
     def calculate(self, s: str) -> int:
         def calc(left, op, right):
@@ -34,13 +35,12 @@ class Solution:
                     return left, i + 1
             return left
         return parse_str(s)   
-        
-        
-'''       
+           
+'''
+
 class Solution:
     def calculate(self, s: str) -> int:
-    output, curr, sign , stack = 0,0,1,[]
-    
+        output, curr, sign , stack = 0,0,1,[]
         for ch in s:
             if ch.isdigit():
                 curr = curr * 10 + int(ch)
@@ -64,7 +64,6 @@ class Solution:
         return output +(curr*sign)
        
 
-'''
 #not working
 '''
 class Solution:
