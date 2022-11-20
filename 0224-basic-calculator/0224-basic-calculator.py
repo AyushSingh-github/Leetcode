@@ -1,5 +1,5 @@
 class Solution:
-    def calculate(self, s):
+    def calculate(self, s: str) -> int:
         def calc(left, op, right):
             if op == '+':
                 return left + right
