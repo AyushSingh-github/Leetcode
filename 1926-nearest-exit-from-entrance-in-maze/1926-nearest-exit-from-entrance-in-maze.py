@@ -14,7 +14,9 @@ class Solution:
                     if ni==0 or nj==0 or ni==m-1 or nj==n-1: return steps+1
                     queue.append([ni,nj,steps+1])
         return -1 
-'''    
+'''
+
+'''
 class Solution:
     def nearestExit(self, maze: List[List[str]], entrance: List[int]) -> int:
         ROWS, COLS = len(maze), len(maze[0])
@@ -74,4 +76,3 @@ class Solution:
             
         # If we finish iterating without finding an exit, return -1.
         return -1
-'''
