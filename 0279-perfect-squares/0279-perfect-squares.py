@@ -72,7 +72,7 @@ class Solution(object):
 '''       
 
 #Greedy DFS Approach
-
+'''
 class Solution:
     def numSquares(self, n: int) -> int:
         
@@ -92,10 +92,10 @@ class Solution:
             if isDiv(n, i):
                 return i
         return -1
-            
+'''            
 
 #Greedy BFS Approach
-'''
+
 class Solution:
     def numSquares(self, n: int) -> int:
         
@@ -113,4 +113,3 @@ class Solution:
                     if n2 < i:
                         newQ.add(i - n2)
             q = newQ
-'''
