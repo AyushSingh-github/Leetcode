@@ -1,3 +1,4 @@
+'''
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         for row in board:
@@ -52,9 +53,7 @@ class Solution:
                     return False
         
         return True        
-             
-        
-'''  
+               
 '''
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
