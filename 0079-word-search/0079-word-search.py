@@ -36,7 +36,6 @@ We also need to stop if the i & j co-ordinates go out of bounds of the board or 
 
 #Can someone explain why my solution works when I write dfs function outside of exist function but not within exist function?
 
-
 class Solution:
     def dfs(self, r, c, ind, board, word, m, n):
         if r < 0 or c < 0 or r >= m or c >= n or ind >= len(word) or word[ind] != board[r][c]:
