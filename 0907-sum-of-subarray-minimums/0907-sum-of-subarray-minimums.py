@@ -1,7 +1,7 @@
 #Monotonic stack, TC,SC-> O(N)
 class Solution:
     def sumSubarrayMins(self, arr: List[int]) -> int:
-        MOD = pow(10,9)+ 7
+        MOD = 10**9 + 7
         stack = []
         summ = 0
 
@@ -11,7 +11,7 @@ class Solution:
             # all the elements have been processed, and the remaining
             # elements in the stack should now be popped out.
 
-            while stack and (i >= len(arr) or arr[stack[-1]] >= arr[i]):
+            while stack and (i == len(arr) or arr[stack[-1]] >= arr[i]):
 
                 # Notice the sign ">=", This ensures that no contribution
                 # is counted twice. right_boundary takes equal or smaller 
