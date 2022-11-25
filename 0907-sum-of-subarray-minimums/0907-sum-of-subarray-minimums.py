@@ -1,4 +1,5 @@
 #Monotonic stack, TC,SC-> O(N)
+'''
 class Solution:
     def sumSubarrayMins(self, arr: List[int]) -> int:
         MOD = 10**9 + 7
@@ -34,10 +35,10 @@ class Solution:
         
         return summ % MOD
 
-    
+'''  
     
 #stack + DP,    TC,SC-> O(N)
-'''
+
 class Solution:
     def sumSubarrayMins(self, arr: List[int]) -> int:
         MOD = 10 ** 9 + 7
@@ -67,4 +68,3 @@ class Solution:
 
         # add all the elements of dp to get the answer
         return sum(dp) % MOD
-'''
