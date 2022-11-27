@@ -62,6 +62,8 @@ class Solution:
         return self.out
 '''
 
+#O(N2)
+'''
 class Solution:
 	def numberOfArithmeticSlices(self, nums: List[int]) -> int:
 		d = [defaultdict(int) for _ in range(len(nums))]
@@ -74,3 +76,18 @@ class Solution:
 				ans+=jj
 				d[i][cd]=jj+ii+1
 		return ans
+'''
+
+#DP->       TC- O(N2)
+class Solution:
+    def numberOfArithmeticSlices(self, nums: List[int]) -> int:
+        n = len(nums)
+        dp = [defaultdict(int) for _ in range(n)]
+        output = 0
+        for i in range(n):
+            for j in range(i):
+                difference = nums[i] - nums[j]
+                output += dp[j][difference]
+                dp[i][difference] += 1 + dp[j][difference]
+        
+        return output
