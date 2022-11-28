@@ -28,10 +28,10 @@ class Solution:
 '''
 
 #hashMap + Set,   TC-> O(N.logN), SC-> (N)
-'''
+
 class Solution: 
     def findWinners(self, matches : List[List[int]]) ->List[List[int]]: 
-        seen = set(), losses_count = {}
+        seen, losses_count = set(),{}
         
         for winner, loser in matches:
             seen.add(winner)
@@ -48,10 +48,10 @@ class Solution:
                 one_lose.append(player)
         
         return [sorted(zero_lose), sorted(one_lose)]
-''' 
+
 
 #HashMap, TC-> O(), SC-> O()
-
+'''
 class Solution: 
     def findWinners(self, matches: List[List[int]]) ->List[List[int]]: 
         losses_count = {}
@@ -68,7 +68,7 @@ class Solution:
                 one_lose.append(player)
         
         return [sorted(zero_lose), sorted(one_lose)]
-
+'''
 
 #Counting with array-> Counting sort
 #TC-> O(N+K), SC-> O(k)  { N iterations + K types }
