@@ -1,5 +1,5 @@
 #Set,    TC-> O(N.logN),    SC-> O(N)
-'''
+
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
         zero_loss = set()
@@ -15,9 +15,11 @@ class Solution:
             if loser in zero_loss:
                 zero_loss.remove(loser)
                 one_loss.add(loser)
+            
             elif loser in one_loss:
                 one_loss.remove(loser)
                 more_losses.add(loser)
+            
             elif loser in more_losses:
                 continue
             else:
@@ -25,10 +27,10 @@ class Solution:
             
         return [sorted(list(zero_loss)), sorted(list(one_loss))]
 
-'''
+
 
 #hashMap + Set,   TC-> O(N.logN), SC-> (N)
-
+'''
 class Solution: 
     def findWinners(self, matches : List[List[int]]) ->List[List[int]]: 
         seen, losses_count = set(),{}
@@ -48,7 +50,7 @@ class Solution:
                 one_lose.append(player)
         
         return [sorted(zero_lose), sorted(one_lose)]
-
+'''
 
 #HashMap, TC-> O(), SC-> O()
 '''
