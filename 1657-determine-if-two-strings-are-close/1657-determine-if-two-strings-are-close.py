@@ -29,7 +29,7 @@ class Solution:
     
 '''
 
-   
+'''  
 class Solution:
     def closeStrings(self, word1: str, word2: str) -> bool:
         flag1,flag2 = 0,0
@@ -41,8 +41,23 @@ class Solution:
             
         if (flag1 and flag2) == 1:
             return True
+'''
 
         ##  QUERY 1:::to check whether elements of word1 and word 2 ,where set() function helps to remove the repeated numbers
 
         ##  QUERY 2::to check the occurance of the  digit od the word1 and word2 we use COUNTER(),inbulit function to countent the occurance of the digits in word 1 and word 2 ,
         ##the sort the by using the SORTED(),function to check whether the word1 and word 2 are equal by transform of any occurance
+        
+        
+    
+#without sorting
+
+class Solution:
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        if len(word1) != len(word2):
+            return False
+        
+        counts1, counts2 = Counter(word1), Counter(word2)
+        return counts1.keys() == counts2.keys() and Counter(counts1.values()) == Counter(counts2.values())
+    
+    
