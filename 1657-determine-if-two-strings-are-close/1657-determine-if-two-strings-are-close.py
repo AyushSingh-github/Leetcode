@@ -1,4 +1,4 @@
-
+'''
 from collections import Counter
 
 class Solution:
@@ -27,13 +27,20 @@ class Solution:
             return 0
         return 1
     
+'''
 
-
-'''   
+   
 class Solution:
     def closeStrings(self, word1: str, word2: str) -> bool:
-        return set(word1)==set(word2) and sorted(Counter(word1).values())==sorted(Counter(word2).values())
-'''
+        flag1,flag2 = 0,0
+        if set(word1) == set(word2):
+            flag1 = 1
+        
+        if sorted(Counter(word1).values())==sorted(Counter(word2).values()):
+            flag2 = 1
+            
+        if (flag1 and flag2) == 1:
+            return True
 
         ##  QUERY 1:::to check whether elements of word1 and word 2 ,where set() function helps to remove the repeated numbers
 
