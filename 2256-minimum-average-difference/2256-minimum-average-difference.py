@@ -122,8 +122,16 @@ class Solution:
             l=i+1
             r=len(nums)-l
             suffix = total - prefix 
-            ad = (prefix // l) - ((suffix//r) if r else 0)
+            
+            if r:
+                ad = (prefix // l) - (suffix // r)
+            else:
+                ad = (prefix // l)
+                
+            #d = (prefix // l) - ((suffix//r) if r else 0)
+            
             if abs(ad) < ans :
                 ans=abs(ad)
                 index=i 
+                
         return index
