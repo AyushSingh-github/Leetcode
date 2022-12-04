@@ -38,7 +38,7 @@ class Solution:
 
 #prefix-Sum
 #TC-> O(N),     SC-> O(N)
-
+'''
 class Solution:
     def minimumAverageDifference(self, nums: List[int]) -> int:
         n = len(nums)
@@ -77,3 +77,53 @@ class Solution:
                 ans = index
                 
         return ans
+'''
+
+#Space Optmised
+
+#My intuition led me to a slightly different variant of the Approach 3. Instead of storing the left sum and the total sum, I store the left sum and the right sum (which is equal the total sum initially).
+
+class Solution:
+    def minimumAverageDifference(self, nums: List[int]) -> int:
+        n = len(nums)
+        ans = -1
+        min_avg_diff = math.inf
+        left_sum = 0
+        right_sum = sum(nums) # right_sum instead of total_sum
+
+        for index in range(n):
+            left_sum += nums[index]
+            right_sum -= nums[index] # A pure elegance
+            
+            left_part_average = floor(left_sum / (index + 1))
+            right_part_average = floor(right_sum / (n - index - 1)) if index != n - 1 else 0
+            
+            curr_difference = abs(left_part_average - right_part_average)
+            if curr_difference < min_avg_diff:
+                min_avg_diff = curr_difference
+                ans = index
+
+                # A little shortcut because the difference can't be less than 0
+                if curr_difference == 0:
+                    break
+                
+        return ans
+
+'''
+class Solution:
+    def minimumAverageDifference(self, nums: List[int]) -> int:
+        prefix = 0
+        total = sum(nums)
+        ans= float(inf)
+        index=0
+        for i in range(len(nums)) :
+            prefix += nums[i]
+            l=i+1
+            r=len(nums)-l
+            suffix = total - prefix 
+            ad = (prefix // l) - ((suffix//r) if r else 0)
+            if abs(ad) < ans :
+                ans=abs(ad)
+                index=i 
+        return index
+'''
