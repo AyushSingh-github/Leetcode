@@ -83,6 +83,7 @@ class Solution:
 
 #My intuition led me to a slightly different variant of the Approach 3. Instead of storing the left sum and the total sum, I store the left sum and the right sum (which is equal the total sum initially).
 
+'''
 class Solution:
     def minimumAverageDifference(self, nums: List[int]) -> int:
         n = len(nums)
@@ -126,4 +127,3 @@ class Solution:
                 ans=abs(ad)
                 index=i 
         return index
-'''
